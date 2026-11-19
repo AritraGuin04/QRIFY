@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta name="description" content="QRIFY - Create, customize, scan and download QR codes easily. Generate stylish QR codes with custom colors, logos and more.">
+
+    <meta name="theme-color" content="#08090c">
+
+    <meta name="robots" content="index, follow">
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>QRIFY — QR Toolkit</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="icon" href="data:,">
+  <script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+  <div class="app-shell">
+
+    <aside class="sidebar glass">
+
+      <a class="brand" href="#">
+        <img src="logo.png" class="brand-icon" alt="QRIFY Logo">
+        <span>QRIFY<small>QR TOOLKIT</small></span>
+      </a>
+
+      <p class="nav-label">WORKSPACE</p>
+
+      <nav>
+
+        <button class="nav-btn active" data-tab="dashboard"><span>▦</span> Dashboard</button>
+
+        <button class="nav-btn" data-tab="scanner"><span>⌗</span> QR Scanner</button>
+
+        <button class="nav-btn" data-tab="maker"><span>▧</span> QR Maker</button>
+
+        <button class="nav-btn" data-tab="bulk"><span>▤</span> Bulk Generator</button>
+
+        <button class="nav-btn" data-tab="contact"><span>♙</span> Contact QR</button>
+
+        <button class="nav-btn" data-tab="saved"><span>♡</span> Favorites & Saved</button>
+
+        <button class="nav-btn" data-tab="history"><span>◷</span> Scan History</button>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        <div class="side-note"><span class="sparkle">✦</span><b>QRIFY PRO</b><p>Create. Scan. Share.</p></div>
+
+        <small>Version 3.0 · Local storage</small>
+
+      </div>
+
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main">
+      <header class="topbar">
+
+      <div class="topbar-left">
+  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <div>
+    <p class="eyebrow">YOUR QR WORKSPACE</p>
+    <h1 id="page-title">Dashboard</h1>
+  </div>
+</div>
+
+        <div class="top-right"><span class="status-dot"></span><span>All systems ready</span><div class="avatar">
+    <i class="fa-solid fa-user"></i>
+</div></div>
+
+      </header>
+
+      <section class="page active" id="dashboard">
+
+        <div class="welcome glass">
+
+          <div><span class="pill">✦ YOUR DIGITAL QR STUDIO</span><h2>Everything QR.<br><span>In one place.</span></h2><p>Create beautiful QR codes, scan instantly and keep everything organized.</p><button class="primary-btn" data-go="maker">Create a QR code <span>→</span></button></div>
+
+          <div class="hero-art"><div class="hero-qr"><div class="qr-pattern"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>Q</span></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><b class="float-tag">✦ QR STUDIO</b></div>
+
+        </div>
+
+        <div class="stats-grid">
+
+          <div class="stat-card glass"><span class="stat-icon purple">▧</span><p>QR CODES CREATED</p><h2 id="stat-created">0</h2><small>Your generated codes</small></div>
+
+          <div class="stat-card glass"><span class="stat-icon blue">⌗</span><p>TOTAL SCANS</p><h2 id="stat-scans">0</h2><small>Scanned successfully</small></div>
+
+          <div class="stat-card glass"><span class="stat-icon pink">♡</span><p>FAVORITES</p><h2 id="stat-favorites">0</h2><small>Saved for later</small></div>
+
+        </div>
+
+        <div class="section-heading"><div><p class="eyebrow">QUICK ACCESS</p><h2>What would you like to do?</h2></div></div>
+
+        <div class="quick-grid">
+
+          <button class="quick-card glass" data-go="maker"><span>▧</span><b>Create QR</b><small>Make a custom QR code</small><i>↗</i></button>
+
+          <button class="quick-card glass" data-go="scanner"><span>⌗</span><b>Scan QR</b><small>Use camera or an image</small><i>↗</i></button>
+
+          <button class="quick-card glass" data-go="bulk"><span>▤</span><b>Bulk Generator</b><small>Create multiple QR codes</small><i>↗</i></button>
+
+          <button class="quick-card glass" data-go="contact"><span>♙</span><b>Contact QR</b><small>Share contact details</small><i>↗</i></button>
+
+        </div>
+
+        <div class="section-heading"><div><p class="eyebrow">LATEST ACTIVITY</p><h2>Recent scans</h2></div><button class="text-btn" data-go="history">View all →</button></div>
+
+        <div class="glass activity-box" id="dashboard-recent"><p class="empty">No recent scans yet.</p></div>
+
+      </section>
+
+      <section class="page" id="maker">
+
+        <div class="section-heading"><div><p class="eyebrow">DESIGN YOUR CODE</p><h2>Create a QR code</h2><p class="sub">Turn your text or link into a beautiful QR code.</p></div></div>
+
+        <div class="workspace-grid">
+
+          <div class="glass panel">
+
+            <label class="field-label">CONTENT TYPE</label>
+
+            <div class="type-tabs">
+
+              <button class="type-btn active" data-type="text">Text / URL</button>
+
+              <button class="type-btn" data-type="email">Email</button>
+
+              <button class="type-btn" data-type="phone">Phone</button>
+
+            </div>
+
+            <label class="field-label" for="qr-content">YOUR CONTENT</label>
+
+            <textarea id="qr-content" placeholder="Enter a website URL or any text..." rows="4"></textarea>
+
+            <div class="two-col">
+
+              <div><label class="field-label">QR COLOR</label><input type="color" id="dark-color" value="#27204c"></div>
+
+              <div><label class="field-label">BACKGROUND</label><input type="color" id="light-color" value="#ffffff"></div>
+
+            </div>
+
+            <label class="field-label">DESIGN TEMPLATE</label>
+
+            <div class="template-grid">
+
+              <button class="template active" data-style="classic"><span class="sample classic-sample"></span>Classic</button>
+
+              <button class="template" data-style="gradient"><span class="sample gradient-sample"></span>Gradient</button>
+
+              <button class="template" data-style="dotted"><span class="sample dotted-sample"></span>Dotted</button>
+
+              <button class="template" data-style="rounded"><span class="sample rounded-sample"></span>Rounded</button>
+
+            </div>
+
+            <label class="field-label">FRAME & LABEL</label>
+
+            <select id="qr-frame"><option value="">No frame</option><option value="SCAN ME">SCAN ME</option><option value="VISIT WEBSITE">VISIT WEBSITE</option><option value="SCAN TO CONNECT">SCAN TO CONNECT</option><option value="OPEN HERE">OPEN HERE</option></select>
+
+            <label class="field-label">CENTER LOGO <span class="optional">OPTIONAL</span></label>
+
+            <input type="file" id="logo-file" accept="image/*">
+
+            <button class="primary-btn full" id="generate-btn">Generate QR code →</button>
+
+          </div>
+
+          <div class="glass panel preview-panel">
+
+            <div class="preview-head"><div><p class="eyebrow">LIVE PREVIEW</p><h3>Your QR code</h3></div><span class="live-pill">● READY</span></div>
+
+            <div class="qr-preview" id="qr-preview"><div class="placeholder-qr">▦<small>Your QR will appear here</small></div></div>
+
+            <input id="qr-name" placeholder="Give your QR a name (optional)">
+
+            <div class="download-grid">
+
+              <button class="secondary-btn" id="download-png">↓ PNG</button>
+
+              <button class="secondary-btn" id="download-svg">↓ SVG</button>
+
+              <button class="secondary-btn" id="download-pdf">↓ PDF</button>
+
+            </div>
+
+            <button class="outline-btn full" id="save-qr">♡ Save to favorites</button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="page" id="scanner">
+
+        <div class="section-heading"><div><p class="eyebrow">SCAN & DECODE</p><h2>QR Scanner</h2><p class="sub">Scan using your camera or upload a QR image.</p></div></div>
+
+        <div class="workspace-grid scanner-grid">
+
+          <div class="glass panel">
+
+            <h3>📷 Camera scanner</h3>
+
+            <div id="reader"></div>
+
+            <button class="primary-btn full" id="camera-start">Start camera</button>
+
+            <button class="outline-btn full" id="camera-stop">Stop camera</button>
+
+            <p class="hint">Camera access requires permission and a secure context (localhost or HTTPS).</p>
+
+          </div>
+
+          <div class="glass panel">
+
+            <h3>Upload QR image</h3>
+
+            <label class="upload-box" for="scan-file"><span>⇧</span><b>Choose an image</b><small>PNG, JPG, WEBP</small></label>
+
+            <input type="file" id="scan-file" accept="image/*" *hidden*>
+
+            <div id="scan-result" class="result-box"><span class="muted">Your scan result will appear here.</span></div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="page" id="bulk">
+
+        <div class="section-heading"><div><p class="eyebrow">CREATE MORE, FASTER</p><h2>Bulk QR Generator</h2><p class="sub">Enter one item per line to generate multiple QR codes.</p></div></div>
+
+        <div class="glass panel">
+
+          <label class="field-label">YOUR TEXTS OR URLS</label>
+
+          <textarea id="bulk-input" rows="8" placeholder="https://example.com&#10;https://google.com&#10;Hello QRIFY"></textarea>
+
+          <div class="bulk-bottom"><span id="bulk-count">0 items</span><button class="primary-btn" id="bulk-generate">Generate all →</button></div>
+
+        </div>
+
+        <div id="bulk-results" class="bulk-grid"></div>
+
+      </section>
+
+      <section class="page" id="contact">
+
+        <div class="section-heading"><div><p class="eyebrow">SHARE YOUR DETAILS</p><h2>Contact QR</h2><p class="sub">Create a QR code that people can scan to save your contact.</p></div></div>
+
+        <div class="workspace-grid">
+
+          <div class="glass panel">
+
+            <label class="field-label">FULL NAME</label><input id="contact-name" placeholder="Your name">
+
+            <label class="field-label">PHONE NUMBER</label><input id="contact-phone" placeholder="+91 98765 43210">
+
+            <label class="field-label">EMAIL ADDRESS</label><input id="contact-email" placeholder="hello@example.com">
+
+            <label class="field-label">WEBSITE</label><input id="contact-url" placeholder="https://example.com">
+
+            <label class="field-label">ORGANIZATION</label><input id="contact-org" placeholder="Company / College">
+
+            <button class="primary-btn full" id="contact-generate">Generate Contact QR →</button>
+
+          </div>
+
+          <div class="glass panel preview-panel">
+
+            <p class="eyebrow">CONTACT PREVIEW</p><div id="contact-preview" class="qr-preview"><div class="placeholder-qr">♙<small>Contact QR preview</small></div></div>
+
+            <button class="secondary-btn full" id="contact-download">↓ Download PNG</button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="page" id="saved">
+
+        <div class="section-heading"><div><p class="eyebrow">YOUR COLLECTION</p><h2>Favorites & Saved QR</h2><p class="sub">Your saved QR codes are stored in this browser.</p></div></div>
+
+        <div class="saved-grid" id="saved-list"></div>
+
+      </section>
+
+      <section class="page" id="history">
+
+        <div class="section-heading"><div><p class="eyebrow">YOUR SCAN ACTIVITY</p><h2>Scan History</h2></div><button class="danger-btn" id="clear-history">Clear history</button></div>
+
+        <div class="glass activity-box" id="history-list"></div>
+
+      </section>
+
+      <footer>QRIFY <span>·</span> Made for your digital world</footer>
+
+    </main>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+</body>
+
+</html>
